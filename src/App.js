@@ -1,34 +1,56 @@
+import keyConceptsImage from './assets/images/key-concepts.png';
+import componentsImage from './assets/images/components.png';
+import stateImage from './assets/images/state.png';
+import eventsImage from './assets/images/events.png';
+import Concepts from './components/Concepts';
+import Header from './components/Header'
+import card from './components/Card';
+import Card from './components/Card';
 
-import Expenses from './components/Expenses/Expenses';
-
-const expenses = [
+const concepts = [
   {
-    id: 'e1',
-    title: 'Toilet Paper',
-    amount: 94.12,
-    date: new Date(2020, 7, 14),
-  },
-  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-  {
-    id: 'e3',
-    title: 'Car Insurance',
-    amount: 294.67,
-    date: new Date(2021, 2, 28),
+    title: 'Components',
+    image: componentsImage,
+    description:
+      'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. Components can receive data via props, and they can render dynamic output using JSX.',
   },
   {
-    id: 'e4',
-    title: 'New Desk (Wooden)',
-    amount: 450,
-    date: new Date(2021, 5, 12),
+    title: 'State',
+    image: stateImage,
+    description:
+      'State is data that may change over time. As it changes, the UI should be updated to reflect the updated data. Each component can maintain its own state and multiple components can share state.',
+  },
+  {
+    title: 'Events',
+    image: eventsImage,
+    description:
+      'Event handlers are added via props to (built-in) components. You pass functions as values to such event handlers to control which functions gets executed for which event.',
   },
 ];
 
-const App = () => { 
-
+function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>      
-    <Expenses expenses ={expenses}/>
+     <Header/>
+      <ul id="concepts">
+        
+          <Concepts 
+          title = {concepts[0].title}
+          image = {concepts[0].image}
+          description = {concepts[0].description}
+          />
+          <Concepts 
+         title = {concepts[1].title}
+         image = {concepts[1].image}
+         description = {concepts[1].description}
+          />
+          <Concepts 
+          title = {concepts[2].title}
+          image = {concepts[2].image}
+          description = {concepts[2].description}
+          />
+        
+      </ul>
     </div>
   );
 }
